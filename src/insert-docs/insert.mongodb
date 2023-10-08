@@ -1,0 +1,17 @@
+use("platzi_store")
+
+
+//? se pueden insertar documentos sin un id ya que mongo por defecto le agrega un id que es _id y tiene como key o referencia oid "object id"
+db.products.insertOne({
+	name: "producto 1",
+	price: 1000,
+
+})
+
+//? cuando nosotros somos los que le agregamos el id al documento mongo no crea el oid por defecto ya que nosotros se lo agregamos
+db.products.insertOne({
+  _id: 1,
+	name: "producto 2",
+	price: 100,
+
+})
