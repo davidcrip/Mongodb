@@ -1,0 +1,33 @@
+use("platzi_store")
+
+//! esta linea es para limpiar la base de datos
+db.products.drop()
+
+
+
+//? cuando se agregan varios documentos y hay alguno repetido va a saltar un error pero mongo va a guardar los datos hasta que llegue al documento duplicado
+
+
+db.products.insertMany([
+  {
+    _id: 1,
+    name: "producto 1",
+    price: 1000,
+  },
+  {
+    _id: 1,
+    name: "producto 2",
+    price: 20,
+
+  },
+  {
+    _id: 3,
+    name: "producto 3",
+    price: 120,
+  }
+],//! para solucionar ese inconveniente se utiliza esta instrucciones para que cuando halla una duplicidad se la salte y guarde los demas datos
+  {
+    ordered: false
+  })
+
+db.products.find()

@@ -1,0 +1,34 @@
+use("platzi_store")
+
+//= para insertar un dato numerico se debe colocar entre corchetes[]
+// db.iot.insertOne({
+//   sensor:'A001',
+//   date: '2022-01-03',
+//   readings: [1212]
+//   }
+// )
+
+//& el $pop se utiliza para eliminar un elemento desde el inicio o desde el final
+// db.iot.updateOne({
+//   sensor:'A001',
+//   date: '2022-01-03',
+//   },
+//   {
+//     $pop:{
+        //* el (1) es para eliminar el ultimo elemento y el (-1) para eliminar el primer elemento
+//       readings: 1
+//     }
+//   }
+// )
+
+//= para agregar un dato numerico se debe colocar solo el numero
+db.iot.updateOne({
+  sensor:'A001',
+  date: '2022-01-03',
+  },
+  {
+    $push:{
+      readings: 2323
+    }
+  }
+)

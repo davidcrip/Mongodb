@@ -1,0 +1,28 @@
+use("platzi_store")
+
+//& remove One element
+// db.inventory.updateMany(
+//   { },
+//   {
+//     //* $pull: Remueve todos los elementos del array que hagan match con un query especifico.
+//     //* en este caso se quita el _id para que busque en todos los elementos y borre el dato que queremos de todos
+//     $pull:{
+//       tags: 'book'
+//     }
+//   }
+// )
+
+
+//& remove others elements
+db.inventory.updateMany(
+  { },
+  {
+    //* $in: Hace match con algunos de los valores especificados en un arreglo.
+    $pull:{
+      //* para eliminar varios datos al tiempo de arrays se realiza de la siguiente manera
+      tags: {
+        $in:['appliance', 'school']
+      }
+    }
+  }
+)

@@ -1,0 +1,42 @@
+use('sample_training')
+
+//! $set
+// db.zips.updateMany(
+//   {
+//     city:'CLEVELAND'
+//   },
+//   //' update -> operators
+//   {
+//     $set:{
+//       myAttr: 'hola'
+//     }
+//   }
+// )
+
+//// el $rename
+//& sirve para renombrar atributos, por si se cambian en algun momento o te equivocas al crear el atributo
+// db.zips.updateMany(
+//   {
+//     city:'CLEVELAND'
+//   },
+//   //' update -> operators
+//   {
+//     $rename:{
+//       myAttr: 'my_data'
+//     }
+//   }
+// )
+
+//// el $unset
+//& es para eliminar un atributo
+db.zips.updateMany(
+  {
+    city:'CLEVELAND'
+  },
+  //' update -> operators
+  {
+    $unset:{
+      my_data:''
+    }
+  }
+)

@@ -1,0 +1,15 @@
+use("platzi_store")
+//? para poder actualizar un documento debemos de tener un id o algo con lo que lo podamos identificar
+db.products.updateOne(
+  //# primero va el dato para indetificar el documento
+  {_id: 4},
+  //# luego va el dato que queremos cambiar con alguno de los operadores que tiene  mongo
+  {
+    //' otro de los operadores es $inc, inc se utiliza para incrementar y por ende solo se pueden con atributos que sean numeros
+    $inc: {
+      //= aqui le decimos cuanto queremos actualizar ese atributo
+      price: 102,
+    }
+  }
+);
+

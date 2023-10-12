@@ -1,0 +1,11 @@
+use('platzi_store')
+
+db.products.updateOne(
+  //# otro es el objectId, este lo utlizamos mas que todo para poder encontrar un documento donde mongo halla sido el que creó el id
+  {_id: ObjectId('65270df4c240fa0317de6ff8')},
+  {
+    $inc:{
+      price:23
+    }
+  }
+)
